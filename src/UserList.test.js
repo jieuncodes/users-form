@@ -9,12 +9,10 @@ test("render one row per user", () => {
   ];
 
   //Render the component
-  render(<UserList />);
+  render(<UserList users={users} />);
 
   //Find all the rows in the table
-  
-
-
+  screen.logTestingPlaygroundURL();
 
   //Assertion: correct number of rows in the table
 });
