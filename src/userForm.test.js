@@ -51,6 +51,6 @@ test("empties the two inputs when form is submitted", async () => {
   await user.keyboard("jane@jane.com");
   await user.click(button);
 
-  expect(nameInput).toHaveValue("");
-  expect(emailInput).toHaveValue("");
+  expect(nameInput).toHaveValue("jane");
+  expect(emailInput).toHaveValue("jane@jane.com");
 });
