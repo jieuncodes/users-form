@@ -30,4 +30,34 @@
     type: "code",
     id: "jlz7y",
   },
+  {
+    content:
+      "test('getAllBy, queryAllBy, findAllBy', async () => {\n  render(<ColorList />);\n\n  expect(\n    screen.getAllByRole('listitem')\n  ).toHaveLength(3);\n\n  expect(\n    screen.queryAllByRole('listitem')\n  ).toHaveLength(3);\n\n  expect(\n    await screen.findAllByRole('listitem')\n  ).toHaveLength(3);\n});",
+    type: "code",
+    id: "e5b5t",
+  },
+  {
+    content:
+      "test('favor using getBy to prove an element exists', () => {\n  render(<ColorList />);\n\n  const element = screen.getByRole('list');\n\n  expect(element).toBeInTheDocument();\n});",
+    type: "code",
+    id: "cawcy",
+  },
+  {
+    content:
+      "test('favor queryBy when proving an element does not exist', () => {\n  render(<ColorList />);\n\n  const element = screen.queryByRole('textbox');\n\n  expect(element).not.toBeInTheDocument();\n});",
+    type: "code",
+    id: "nawtj",
+  },
+  {
+    content:
+      "import { useState, useEffect } from 'react';\n\nfunction fakeFetchColors() {\n  return Promise.resolve(\n    ['red', 'green', 'blue']\n  );\n}\n\nfunction LoadableColorList() {\n  const [colors, setColors] = useState([]);\n\n  useEffect(() => {\n    fakeFetchColors()\n      .then(c => setColors(c));\n  }, []);\n\n  const renderedColors = colors.map(color => {\n    return <li key={color}>{color}</li>\n  });\n\n  return <ul>{renderedColors}</ul>\n}\n\nrender(<LoadableColorList />);\n\n\n",
+    type: "code",
+    id: "ewehs",
+  },
+  {
+    content:
+      "test('Favor findBy or findAllBy when data fetching', async () => {\n  render(<LoadableColorList />);\n\n  const els = await screen.findAllByRole('listitem');\n\n  expect(els).toHaveLength(3);\n});",
+    type: "code",
+    id: "3ntun",
+  },
 ];
