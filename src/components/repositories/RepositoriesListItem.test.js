@@ -19,6 +19,11 @@ function renderComponent() {
   );
 }
 
-test("shows a link to the github hompage for this repository", () => {
+test("shows a link to the github hompage for this repository", async () => {
   renderComponent();
+  await screen.findByRole("img", { name: /javascript/i });
 });
+
+const pause = () => {
+  return new Promise((resolve) => setTimeout(resolve, 100));
+};
